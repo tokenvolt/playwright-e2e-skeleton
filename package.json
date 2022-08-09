@@ -1,0 +1,18 @@
+{
+  "name": "e2e-prosapient",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.24.0"
+  },
+  "scripts": {
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@dlenroc/testrail": "1.7.1",
+    "@faker-js/faker": "7.3.0",
+    "dotenv": "16.0.1",
+    "uuid": "8.3.2"
+  }
+}
