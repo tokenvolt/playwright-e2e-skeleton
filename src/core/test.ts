@@ -1,11 +1,14 @@
 import { test as base } from "@playwright/test"
 import { v4 as uuidv4 } from "uuid"
-import { Generator } from "core/generator"
+import { createDataGenerator } from "core/data-generator"
+import "entities/_loader"
 
-export const test = base.extend<{ tuid: string; gen: Generator }>({
+// console.log("G2", G)
+
+export const test = base.extend<{ tuid: string; gen: ReturnType<typeof createDataGenerator> }>({
   /**
    *
-   * Test unique identifier
+   * Test Unique IDentifier
    *
    */
   tuid: async ({}, use) => {
@@ -14,10 +17,10 @@ export const test = base.extend<{ tuid: string; gen: Generator }>({
 
   /**
    *
-   * Fake data generator. Is aware of idx fixture.
+   * Fake data generator. Is aware of tuid fixture.
    *
    */
   gen: async ({ tuid }, use) => {
-    await use(new Generator({ tuid }))
+    await use(createDataGenerator({ tuid, useTUID: true }))
   },
 })

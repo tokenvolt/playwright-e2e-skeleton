@@ -10,10 +10,6 @@ export class LoginPage extends POM {
     this.form = new LoginForm(page)
   }
 
-  async navigate() {
-    await this.page.goto(this.url)
-  }
-
   async signIn({ email, password }: { email: string; password: string }) {
     await this.form.fill({ email, password })
     await this.form.submit()

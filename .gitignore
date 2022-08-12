@@ -4,3 +4,4 @@ node_modules/
 /reports/
 /playwright/.cache/
 .env
+_sessions

@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test"
 
-const buildURL = (path: string) => `${process.env.URL}${path}`
+const buildURL = (path: string) => `${process.env.HOST}${path}`
 
 export class POM {
   readonly page: Page
@@ -12,6 +12,7 @@ export class POM {
   }
 
   async navigate() {
-    this.page.goto(this.url)
+    await this.page.goto(this.url)
+    await this.page.waitForURL(this.url)
   }
 }
